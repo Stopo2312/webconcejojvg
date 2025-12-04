@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Concejo Deliberante - Municipalidad de Joaquín Víctor González</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <!-- ENCABEZADO INSTITUCIONAL -->
+<header class="encabezado">
+  <img src="logoconcejo (1).png" alt="Escudo del Concejo" class="logo">
+  <div class="titulo-encabezado">
+    <h1>Honorable Concejo Deliberante</h1>
+    <h2>Municipalidad de Joaquín Víctor González</h2>
+  </div>
+</header>
+<nav class="navbar" role="navigation" aria-label="Menú principal">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+
+    <!-- SUBMENÚ: INSTITUCIONAL -->
+<li class="submenu">
+  <a href="#" class="submenu-btn" aria-haspopup="true" aria-expanded="false">Institucional ▾</a>
+  <ul class="dropdown" aria-label="Submenú Institucional">
+    <li><a href="#autoridades">Autoridades</a></li>
+    <li><a href="#concejales">Concejales</a></li>
+    <li><a href="#normas">Normas Institucionales</a></li>
+  </ul>
+</li>
+
+    <li><a href="actividad-legislativa.html">Actividad Legislativa</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="noticias.html">Noticias</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+
+
+<section class="banner">
+    <img src="banner.jpg" alt="Imagen institucional del Municipalidad JVG">
+</section>
+<section class="inicio">
+    <h2>Historia Institucional</h2>
+
+    <div class="inicio-contenido">
+        <img src="vistaareajvg.jpg" alt="Historia del Concejo" class="imagen-historia">
+
+        <p>
+            El Concejo Deliberante de Joaquín Víctor González es una institución
+            democrática encargada de la representación legislativa de la comunidad.
+            A lo largo de su historia, ha trabajado por el desarrollo, la participación
+            ciudadana y la elaboración de normas que contribuyan al bienestar del municipio.
+            <br><br>
+            Su misión es promover el diálogo, la transparencia y el fortalecimiento
+            institucional a través de un trabajo legislativo responsable.
+        </p>
+    </div>
+</section>
+<!-- Sección Autoridades -->
+<section id="autoridades" class="contenido-pagina">
+  <h2>Autoridades</h2>
+  <div class="autoridades-grid">
+    <!-- Tarjeta de ejemplo -->
+    <div class="card autoridad">
+      <img src="nelsonsoraire.jpg" alt="Presidente del Concejo">
+      <h3>Soraire Nelson</h3>
+      <p>Presidente del Concejo Deliberante</p>
+    </div>
+
+    <div class="card autoridad">
+      <img src="perfil.jpg" alt="Vicepresidente del Concejo">
+      <h3>Nombre del Vicepresidente</h3>
+      <p>Vicepresidente</p>
+    </div>
+
+    <div class="card autoridad">
+      <img src="perfil.jpg" alt="Secretario del Concejo">
+      <h3>Nombre del Secretario</h3>
+      <p>Secretario</p>
+    </div>
+    <!-- Podés seguir agregando más cargos -->
+  </div>
+</section>
+
+<!-- Sección Concejales -->
+<section id="concejales" class="contenido-pagina">
+  <h2>Concejales</h2>
+  <div class="autoridades-grid">
+    <div class="card autoridad">
+      <img src="perfil.jpg" alt="Nombre del concejal">
+      <h3>Nombre del concejal</h3>
+      <p>Bloque / Partido</p>
+    </div>
+        <div class="card autoridad">
+      <img src="perfil.jpg" alt="Nombre del concejal">
+      <h3>Nombre del concejal</h3>
+      <p>Bloque / Partido</p>
+    </div>
+            <div class="card autoridad">
+      <img src="perfil.jpg" alt="Nombre del concejal">
+      <h3>Nombre del concejal</h3>
+      <p>Bloque / Partido</p>
+    </div>
+            <div class="card autoridad">
+      <img src="perfil.jpg" alt="Nombre del concejal">
+      <h3>Nombre del concejal</h3>
+      <p>Bloque / Partido</p>
+    </div>
+            <div class="card autoridad">
+      <img src="perfil.jpg" alt="Nombre del concejal">
+      <h3>Nombre del concejal</h3>
+      <p>Bloque / Partido</p>
+    </div>
+    <!-- Más tarjetas -->
+  </div>
+</section>
+
+<!-- Sección Normas Institucionales -->
+<section id="normas" class="contenido-pagina">
+  <h2>Normas Institucionales</h2>
+  <div class="lista-normas">
+    <p><a href="carta-organica-municipal.pdf" target="_blank">Carta Orgánica Municipal</a></p>
+    <p><a href="ley-procedimientos-administrativos-salta.pdf" target="_blank">Ley de Procedimientos Administrativos de la Provincia de Salta</a></p>
+    <p><a href="regimen-municipal-constitucion-salta.pdf" target="_blank">Régimen Municipal en la Constitución de la Provincia de Salta</a></p>
+  </div>
+</section>  
+<script>
+  // Controlar inline display del dropdown para evitar conflictos CSS en Edge
+  function setDropdownDisplay(dropdown, visible) {
+    if (!dropdown) return;
+    if (visible) {
+      // usar setAttribute para asegurar que se aplique
+      dropdown.setAttribute('style', 'display: block !important;');
+    } else {
+      dropdown.setAttribute('style', '');
+    }
+  }
+
+  function closeSubmenu(li) {
+    if (!li) return;
+    const dropdown = li.querySelector('.dropdown');
+    const btn = li.querySelector('.submenu-btn');
+    setDropdownDisplay(dropdown, false);
+    li.classList.remove('open');
+    li.removeAttribute('data-clicked');
+    if (btn) {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.blur(); // quitar foco
+    }
+  }
+
+  function openSubmenu(li, byClick) {
+    if (!li) return;
+    const dropdown = li.querySelector('.dropdown');
+    const btn = li.querySelector('.submenu-btn');
+    setDropdownDisplay(dropdown, true);
+    li.classList.add('open');
+    if (byClick) li.setAttribute('data-clicked', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  }
+
+  function toggleSubmenu(li, byClick) {
+    const isOpen = li.classList.contains('open');
+    if (isOpen) {
+      closeSubmenu(li);
+      return false;
+    } else {
+      openSubmenu(li, byClick);
+      return true;
+    }
+  }
+
+  // Click en botón de submenú: alternar
+  document.querySelectorAll('.submenu > .submenu-btn').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const li = this.parentElement;
+      toggleSubmenu(li, true);
+    });
+
+    // Teclado: Enter o Space
+    btn.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        const li = this.parentElement;
+        toggleSubmenu(li, true);
+      }
+    });
+  });
+
+  // Click fuera cierra el submenú
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.navbar li.submenu.open').forEach(openLi => {
+      if (!openLi.contains(e.target)) {
+        closeSubmenu(openLi);
+      }
+    });
+  });
+
+  // Hover abre temporalmente (solo escritorio y si no fue abierto por click)
+  document.querySelectorAll('.navbar li.submenu').forEach(li => {
+    li.addEventListener('mouseenter', function(){
+      if (window.matchMedia('(min-width: 901px)').matches && !this.hasAttribute('data-clicked')) {
+        openSubmenu(this, false);
+      }
+    });
+
+    li.addEventListener('mouseleave', function(){
+      if (window.matchMedia('(min-width: 901px)').matches && !this.hasAttribute('data-clicked')) {
+        closeSubmenu(this);
+      }
+    });
+  });
+
+  // Click en enlace del dropdown cierra el submenú
+  document.querySelectorAll('.dropdown a').forEach(dLink => {
+    dLink.addEventListener('click', function(){
+      const openLi = this.closest('li.submenu');
+      if (openLi) closeSubmenu(openLi);
+    });
+  });
+
+  // Cerrar todos al cargar para evitar estados pegados
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.navbar li.submenu').forEach(li => closeSubmenu(li));
+  });
+  // Ocultar Historia Institucional si se accede a una sección institucional
+function controlarInicioSegunHash() {
+  const inicio = document.querySelector('.inicio');
+  const ids = ['#autoridades', '#concejales', '#normas'];
+  if (ids.includes(location.hash)) {
+    inicio.style.display = 'none';
+  } else {
+    inicio.style.display = '';
+  }
+}
+
+// Ejecutar al cargar la página
+window.addEventListener('load', controlarInicioSegunHash);
+
+// Ejecutar si el hash cambia (por navegación interna)
+window.addEventListener('hashchange', controlarInicioSegunHash);
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
